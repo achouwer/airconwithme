@@ -1,0 +1,28 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Airconwithme installatie",
+        "description": "Voer de verbindingsgegevens in voor je Airconwithme airconditioner.",
+        "data": {
+          "host": "IP-adres of hostnaam",
+          "username": "Gebruikersnaam",
+          "password": "Wachtwoord"
+        }
+      }
+    },
+    "error": {
+      "no_host": "Geen host opgegeven",
+      "unknown": "Er is een onverwachte fout opgetreden"
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Opties",
+        "description": "Nog geen opties beschikbaar",
+        "data": {}
+      }
+    }
+  }
+}
