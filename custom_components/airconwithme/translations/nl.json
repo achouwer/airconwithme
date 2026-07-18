@@ -1,0 +1,36 @@
+{
+  "title": "Airconwithme",
+  "config": {
+    "step": {
+      "user": {
+        "title": "Airconwithme instellen",
+        "description": "Vul de verbindingsgegevens van je Airconwithme-apparaat in.",
+        "data": {
+          "name": "Naam",
+          "host": "IP-adres of hostnaam",
+          "area_id": "Ruimte",
+          "username": "Gebruikersnaam",
+          "password": "Wachtwoord"
+        }
+      }
+    },
+    "error": {
+      "no_host": "Geen host ingevuld",
+      "cannot_connect": "Kan geen verbinding maken met het Airconwithme-apparaat",
+      "unknown": "Onverwachte fout opgetreden"
+    },
+    "abort": {
+      "already_configured": "Dit Airconwithme-apparaat is al geconfigureerd"
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Opties",
+        "description": "Er zijn nog geen opties beschikbaar.",
+        "data": {}
+      }
+    }
+  }
+}
+

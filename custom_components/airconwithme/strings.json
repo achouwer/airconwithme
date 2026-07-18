@@ -1,0 +1,36 @@
+{
+  "title": "Airconwithme",
+  "config": {
+    "step": {
+      "user": {
+        "title": "Airconwithme setup",
+        "description": "Enter the connection details for your Airconwithme device.",
+        "data": {
+          "name": "Name",
+          "host": "IP address or hostname",
+          "area_id": "Area",
+          "username": "Username",
+          "password": "Password"
+        }
+      }
+    },
+    "error": {
+      "no_host": "No host provided",
+      "cannot_connect": "Cannot connect to the Airconwithme device",
+      "unknown": "Unexpected error occurred"
+    },
+    "abort": {
+      "already_configured": "This Airconwithme device is already configured"
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Options",
+        "description": "No options available yet.",
+        "data": {}
+      }
+    }
+  }
+}
+

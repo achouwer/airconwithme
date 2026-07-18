@@ -1,0 +1,15 @@
+{
+  "domain": "airconwithme",
+  "name": "Airconwithme",
+  "version": "2.0.0",
+  "documentation": "https://github.com/custom-components/airconwithme",
+  "issue_tracker": "https://github.com/custom-components/airconwithme/issues",
+  "codeowners": [],
+  "config_flow": true,
+  "integration_type": "device",
+  "iot_class": "local_polling",
+  "requirements": [],
+  "dependencies": [],
+  "single_config_entry": false
+}
+
