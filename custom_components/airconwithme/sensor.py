@@ -5,7 +5,12 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Any
 
-from homeassistant.components.sensor import SensorDeviceClass, SensorEntity, SensorStateClass
+from homeassistant.components.sensor import (
+    SensorDeviceClass,
+    SensorEntity,
+    SensorEntityDescription,
+    SensorStateClass,
+)
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import CONF_HOST, CONF_NAME, UnitOfTemperature
 from homeassistant.core import HomeAssistant
@@ -16,16 +21,11 @@ from .const import CONF_AREA_ID, DOMAIN, MANUFACTURER, MODEL
 from .coordinator import AirconwithmeCoordinator
 
 
-@dataclass(frozen=True)
-class AirconwithmeSensorDescription:
+@dataclass(frozen=True, kw_only=True)
+class AirconwithmeSensorDescription(SensorEntityDescription):
     """Description of an Airconwithme sensor."""
 
-    key: str
-    name: str
     value_key: str
-    device_class: SensorDeviceClass | None = None
-    native_unit: str | None = None
-    state_class: SensorStateClass | None = None
     divide_by_ten: bool = False
 
 
@@ -35,7 +35,7 @@ SENSORS: tuple[AirconwithmeSensorDescription, ...] = (
         name="Room temperature",
         value_key="room_temperature",
         device_class=SensorDeviceClass.TEMPERATURE,
-        native_unit=UnitOfTemperature.CELSIUS,
+        native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         state_class=SensorStateClass.MEASUREMENT,
         divide_by_ten=True,
     ),
@@ -44,7 +44,7 @@ SENSORS: tuple[AirconwithmeSensorDescription, ...] = (
         name="Outdoor temperature",
         value_key="outdoor_temperature",
         device_class=SensorDeviceClass.TEMPERATURE,
-        native_unit=UnitOfTemperature.CELSIUS,
+        native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         state_class=SensorStateClass.MEASUREMENT,
         divide_by_ten=True,
     ),
@@ -52,7 +52,7 @@ SENSORS: tuple[AirconwithmeSensorDescription, ...] = (
         key="operating_hours",
         name="Operating hours",
         value_key="operating_hours",
-        native_unit="h",
+        native_unit_of_measurement="h",
         state_class=SensorStateClass.TOTAL_INCREASING,
     ),
     AirconwithmeSensorDescription(
@@ -88,7 +88,7 @@ class AirconwithmeSensor(CoordinatorEntity[AirconwithmeCoordinator], SensorEntit
         self._attr_name = description.name
         self._attr_unique_id = f"{entry.entry_id}_{description.key}"
         self._attr_device_class = description.device_class
-        self._attr_native_unit_of_measurement = description.native_unit
+        self._attr_native_unit_of_measurement = description.native_unit_of_measurement
         self._attr_state_class = description.state_class
 
         device_info: dict[str, Any] = {
@@ -141,4 +141,3 @@ async def async_setup_entry(
         AirconwithmeSensor(coordinator, entry, description)
         for description in SENSORS
     )
-

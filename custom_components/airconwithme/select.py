@@ -2,10 +2,10 @@
 
 from __future__ import annotations
 
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from typing import Any
 
-from homeassistant.components.select import SelectEntity
+from homeassistant.components.select import SelectEntity, SelectEntityDescription
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import CONF_HOST, CONF_NAME
 from homeassistant.core import HomeAssistant
@@ -27,15 +27,13 @@ from .const import (
 from .coordinator import AirconwithmeCoordinator
 
 
-@dataclass(frozen=True)
-class AirconwithmeSelectDescription:
+@dataclass(frozen=True, kw_only=True)
+class AirconwithmeSelectDescription(SelectEntityDescription):
     """Description of an Airconwithme select."""
 
-    key: str
-    name: str
     uid: int
     value_key: str
-    options_map: dict[int, str]
+    options_map: dict[int, str] = field(default_factory=dict)
 
 
 SELECTS: tuple[AirconwithmeSelectDescription, ...] = (
@@ -138,4 +136,3 @@ async def async_setup_entry(
         AirconwithmeSelect(coordinator, entry, description)
         for description in SELECTS
     )
-
