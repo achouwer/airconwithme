@@ -2,8 +2,8 @@
   "domain": "airconwithme",
   "name": "Airconwithme",
   "version": "2.0.0",
-  "documentation": "https://github.com/custom-components/airconwithme",
-  "issue_tracker": "https://github.com/custom-components/airconwithme/issues",
+  "documentation": "https://github.com/achouwer/airconwithme",
+  "issue_tracker": "https://github.com/achouwer/airconwithme/issues",
   "codeowners": [],
   "config_flow": true,
   "integration_type": "device",
@@ -12,4 +12,3 @@
   "dependencies": [],
   "single_config_entry": false
 }
-

@@ -33,3 +33,7 @@ Restart Home Assistant, then add the integration from Settings > Devices & servi
 ## Status
 
 This is a first working version. It was built from locally observed Airconwithme / Intesis API behavior and may need more validation across different device models.
+
+## Development
+
+This integration was created and iteratively improved with help from OpenAI Codex. The implementation is based on locally observed behavior of the Airconwithme / Intesis web interface and Home Assistant testing.

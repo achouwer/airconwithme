@@ -5,11 +5,17 @@ from __future__ import annotations
 from typing import Any
 
 from homeassistant.config_entries import ConfigEntry
-from homeassistant.const import CONF_PASSWORD
+from homeassistant.const import CONF_HOST, CONF_PASSWORD, CONF_USERNAME
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers import device_registry as dr
 
 from .const import DOMAIN
+
+TO_REDACT = {
+    CONF_HOST,
+    CONF_PASSWORD,
+    CONF_USERNAME,
+}
 
 
 async def async_get_config_entry_diagnostics(
@@ -17,9 +23,10 @@ async def async_get_config_entry_diagnostics(
     entry: ConfigEntry,
 ) -> dict[str, Any]:
     """Return diagnostics for a config entry."""
-    safe_config = dict(entry.data)
-    if CONF_PASSWORD in safe_config:
-        safe_config[CONF_PASSWORD] = "REDACTED"
+    safe_config = {
+        key: "REDACTED" if key in TO_REDACT else value
+        for key, value in entry.data.items()
+    }
 
     entry_data = hass.data.get(DOMAIN, {}).get(entry.entry_id, {})
     coordinator = entry_data.get("coordinator")
@@ -45,4 +52,3 @@ async def async_get_config_entry_diagnostics(
             for device in devices
         ],
     }
-
