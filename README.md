@@ -1,17 +1,19 @@
-# Airconwithme Home Assistant Integration
+# Airconwithme
 
-Custom Home Assistant integration for local Airconwithme / Intesis `api.cgi` devices.
+Mitsubishi / IntesisHome / Airconwithme integration for Home Assistant.
+
+This custom integration adds local support for Airconwithme air conditioning Wi-Fi modules through the local `api.cgi` interface.
 
 ## Features
 
-- Local polling via the device webserver API
-- Multiple devices via config flow
-- Climate entity
-- Separate entities for easier dashboards and automations:
+- Local polling via the device webserver API.
+- Multiple devices via config flow.
+- Climate entity.
+- Separate entities for dashboards and automations:
   - room temperature sensor
   - outdoor temperature sensor
   - operating hours sensor
-  - alarm/error sensors
+  - alarm and error sensors
   - power switch
   - mode select
   - fan speed select
@@ -28,3 +30,6 @@ Copy `custom_components/airconwithme` to:
 
 Restart Home Assistant, then add the integration from Settings > Devices & services.
 
+## Status
+
+This is a first working version. It was built from locally observed Airconwithme / Intesis API behavior and may need more validation across different device models.
