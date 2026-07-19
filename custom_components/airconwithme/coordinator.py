@@ -16,6 +16,10 @@ from .const import (
     UID_ALARM,
     UID_ERROR_CODE,
     UID_FAN,
+    UID_MAINTENANCE_CONFIG,
+    UID_MAINTENANCE_FILTER_CONFIG,
+    UID_MAINTENANCE_FILTER_TIME,
+    UID_MAINTENANCE_TIME,
     UID_MAX_SETPOINT,
     UID_MIN_SETPOINT,
     UID_MODE,
@@ -44,6 +48,10 @@ UID_TO_KEY = {
     UID_MIN_SETPOINT: "min_setpoint",
     UID_MAX_SETPOINT: "max_setpoint",
     UID_OUTDOOR_TEMPERATURE: "outdoor_temperature",
+    UID_MAINTENANCE_TIME: "maintenance_time",
+    UID_MAINTENANCE_CONFIG: "maintenance_config",
+    UID_MAINTENANCE_FILTER_TIME: "maintenance_filter_time",
+    UID_MAINTENANCE_FILTER_CONFIG: "maintenance_filter_config",
 }
 
 
@@ -127,4 +135,3 @@ class AirconwithmeCoordinator(DataUpdateCoordinator[dict[str, Any]]):
             await self.async_request_refresh()
         except Exception:
             _LOGGER.exception("Delayed refresh failed")
-

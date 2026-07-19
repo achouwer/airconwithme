@@ -65,6 +65,24 @@ SENSORS: tuple[AirconwithmeSensorDescription, ...] = (
         name="Alarm",
         value_key="alarm",
     ),
+    AirconwithmeSensorDescription(
+        key="min_setpoint",
+        name="Minimum setpoint",
+        value_key="min_setpoint",
+        device_class=SensorDeviceClass.TEMPERATURE,
+        native_unit_of_measurement=UnitOfTemperature.CELSIUS,
+        state_class=SensorStateClass.MEASUREMENT,
+        divide_by_ten=True,
+    ),
+    AirconwithmeSensorDescription(
+        key="max_setpoint",
+        name="Maximum setpoint",
+        value_key="max_setpoint",
+        device_class=SensorDeviceClass.TEMPERATURE,
+        native_unit_of_measurement=UnitOfTemperature.CELSIUS,
+        state_class=SensorStateClass.MEASUREMENT,
+        divide_by_ten=True,
+    ),
 )
 
 

@@ -19,9 +19,11 @@ from .const import (
     MANUFACTURER,
     MODE_MAP,
     MODEL,
+    REMOTE_CONTROL_MAP,
     SWING_MAP,
     UID_FAN,
     UID_MODE,
+    UID_REMOTE_DISABLE,
     UID_SWING,
 )
 from .coordinator import AirconwithmeCoordinator
@@ -57,6 +59,13 @@ SELECTS: tuple[AirconwithmeSelectDescription, ...] = (
         uid=UID_SWING,
         value_key="swing",
         options_map=SWING_MAP,
+    ),
+    AirconwithmeSelectDescription(
+        key="remote_control",
+        name="Remote control",
+        uid=UID_REMOTE_DISABLE,
+        value_key="remote_disable",
+        options_map=REMOTE_CONTROL_MAP,
     ),
 )
 

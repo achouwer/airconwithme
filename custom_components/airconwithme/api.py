@@ -207,6 +207,10 @@ class AirconwithmeAPI:
             "min_setpoint": value(35),
             "max_setpoint": value(36),
             "outdoor_temperature": value(37),
+            "maintenance_time": value(181),
+            "maintenance_config": value(182),
+            "maintenance_filter_time": value(183),
+            "maintenance_filter_config": value(184),
             "raw": values,
             "metadata": self._metadata,
         }
@@ -220,4 +224,3 @@ class AirconwithmeAPI:
         if result.get("success") is True:
             await self.refresh_datapoints()
         return result
-

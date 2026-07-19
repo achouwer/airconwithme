@@ -30,6 +30,10 @@ UID_ERROR_CODE = 15
 UID_MIN_SETPOINT = 35
 UID_MAX_SETPOINT = 36
 UID_OUTDOOR_TEMPERATURE = 37
+UID_MAINTENANCE_TIME = 181
+UID_MAINTENANCE_CONFIG = 182
+UID_MAINTENANCE_FILTER_TIME = 183
+UID_MAINTENANCE_FILTER_CONFIG = 184
 
 MODE_MAP = {
     0: "Auto",
@@ -47,11 +51,14 @@ FAN_MAP = {
 }
 
 SWING_MAP = {
-    0: "Off",
     1: "Position 1",
     2: "Position 2",
     3: "Position 3",
     4: "Position 4",
-    5: "Swing",
+    10: "Swing",
 }
 
+REMOTE_CONTROL_MAP = {
+    0: "Remote Enabled",
+    1: "Remote Disabled",
+}
